@@ -1,6 +1,7 @@
 import csv
 import codecs
 import re
+import sys
 import urllib
 
 pre = re.compile(r"(p|qal|s)(?P<pid>\d+)",  re.IGNORECASE)
@@ -193,5 +194,9 @@ def handle_file(csvfile):
         'warnings': warnings }
     return results
 
-results = handle_file('gnd.csv')
+if len(sys.argv) != 2:
+	print('Usage python gndcsv2quickstatement.py input.csv')
+	exit(1)
+
+filename = sys.argv[1];
 print(results['all_commands'])
