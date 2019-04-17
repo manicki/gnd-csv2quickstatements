@@ -199,4 +199,5 @@ if len(sys.argv) != 2:
 	exit(1)
 
 filename = sys.argv[1];
+results = handle_file(filename)
 print(results['all_commands'])
